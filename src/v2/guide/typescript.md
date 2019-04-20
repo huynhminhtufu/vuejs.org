@@ -1,30 +1,30 @@
 ---
-title: TypeScript Support
+title: Hỗ trợ TypeScript
 type: guide
 order: 404
 ---
 
-> In Vue 2.5.0+ we have greatly improved our type declarations to work with the default object-based API. At the same time it introduces a few changes that require upgrade actions. Read [this blog post](https://medium.com/the-vue-point/upcoming-typescript-changes-in-vue-2-5-e9bd7e2ecf08) for more details.
+> Trong phiên bản Vue 2.5.0+ chúng tôi đã cải thiện khá nhiều các phần khai báo kiểu để nó hoạt động tốt với object-based API mặc định. Đồng thời có một vài thay đổi nhỏ đòi hỏi phải thực hiện để nâng cấp. Có thể đọc [bài blog này](https://medium.com/the-vue-point/upcoming-typescript-changes-in-vue-2-5-e9bd7e2ecf08) để xem cụ thể hơn.
 
-## Official Declaration in NPM Packages
+## Official Declaration trong NPM Packages
 
-A static type system can help prevent many potential runtime errors, especially as applications grow. That's why Vue ships with [official type declarations](https://github.com/vuejs/vue/tree/dev/types) for [TypeScript](https://www.typescriptlang.org/) - not only in Vue core, but also for [vue-router](https://github.com/vuejs/vue-router/tree/dev/types) and [vuex](https://github.com/vuejs/vuex/tree/dev/types) as well.
+Một hệ thống static type (kiểu tĩnh) có thể giúp ngăn chặn khá nhiều lỗi lúc runtime (lúc chạy), đặc biệt là đối với các ứng dụng lớn. Đó là lí do vì sao Vue đã được bom gồm sẵn với [official type declarations](https://github.com/vuejs/vue/tree/dev/types) cho [TypeScript](https://www.typescriptlang.org/) - không những Vue core, mà [vue-router](https://github.com/vuejs/vue-router/tree/dev/types) và [vuex](https://github.com/vuejs/vuex/tree/dev/types) cũng được tích hợp.
 
-Since these are [published on NPM](https://cdn.jsdelivr.net/npm/vue/types/), and the latest TypeScript knows how to resolve type declarations in NPM packages, this means when installed via NPM, you don't need any additional tooling to use TypeScript with Vue.
+Vì những gói này đã được [phát hành trên NPM](https://cdn.jsdelivr.net/npm/vue/types/), phiên bản TypeScript mới nhất sẽ có thể được các resolve type declarations (giải mã khai báo kiểu) trong các package của NPM, điều này có nghĩa rằng khi bạn cài Vue bằng NPM, bạn không cần cài thêm tool nào để có thể sử dụng TypeScript với Vue.
 
-We also plan to provide an option to scaffold a ready-to-go Vue + TypeScript project in `vue-cli` in the near future.
+Chúng tôi cũng đã lên kế hoạch để cung cấp một tùy chọn giúp bạn tạo nhanh sẵn một dự án với Vue + TypeScript trong `vue-cli` trong tương lai gần.
 
-## Recommended Configuration
+## Cấu hình đề xuất
 
 ``` js
 // tsconfig.json
 {
   "compilerOptions": {
-    // this aligns with Vue's browser support
+    // để đồng bộ với phần hỗ trợ trình duyệt của Vue
     "target": "es5",
-    // this enables stricter inference for data properties on `this`
+    // điều này hỗ trợ kiểm soát chặt chẽ hơn với các thuộc tính dữ liệu trên `this`
     "strict": true,
-    // if using webpack 2+ or rollup, to leverage tree shaking:
+    // nếu xài webpack 2+ hoặc rollup
     "module": "es2015",
     "moduleResolution": "node"
   }
